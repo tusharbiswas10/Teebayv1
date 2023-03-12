@@ -1,0 +1,55 @@
+type User {
+  id: ID!
+  email: String!
+  password: String!
+  products: [Product!]!
+}
+
+type Product {
+  id: ID!
+  name: String!
+  description: String!
+  price: Float!
+  user: User!
+}
+
+input ProductInput {
+  name: String!
+  description: String!
+  price: Float!
+}
+
+type Query {
+  products: [Product!]!
+  product(id: ID!): Product
+}
+
+type Mutation {
+  addProduct(productInput: ProductInput!): Product!
+  updateProduct(id: ID!, productInput: ProductInput!): Product!
+  deleteProduct(id: ID!): Boolean
+}
+
+type AuthPayload {
+  token: String
+  user: User
+}
+
+type Query {
+  me: User
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+input SignupInput {
+  email: String!
+  password: String!
+}
+
+type Mutation {
+  signup(signupInput: SignupInput!): AuthPayload!
+  login(loginInput: LoginInput!): AuthPayload!
+}
