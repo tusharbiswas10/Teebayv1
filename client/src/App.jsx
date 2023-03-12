@@ -5,7 +5,7 @@ import { ApolloProvider } from '@apollo/client';
 import client from './graphql/client';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
-import MyProductsPage from './pages/MyProductsPage';
+import MyProductsPage from './pages/MyProductspage';
 
 const App = () => {
   return (
@@ -22,7 +22,3 @@ const App = () => {
 };
 
 export default App;
-
-
-
-
