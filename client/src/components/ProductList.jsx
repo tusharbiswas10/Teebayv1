@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
-import { GET_MY_PRODUCTS } from '../graphql/queries';
+import { GET_PRODUCTS_QUERY } from '../graphql/queries';
 import {
   Typography,
   List,
@@ -12,7 +12,7 @@ import {
 import { Edit as EditIcon, Delete as DeleteIcon } from '@material-ui/icons';
 
 const ProductList = () => {
-  const { loading, error, data } = useQuery(GET_MY_PRODUCTS);
+  const { loading, error, data } = useQuery(GET_PRODUCTS_QUERY);
 
   if (loading) {
     return <Typography>Loading...</Typography>;

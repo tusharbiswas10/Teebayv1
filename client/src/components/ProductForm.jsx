@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { ADD_PRODUCT } from '../graphql/mutations';
+import { ADD_PRODUCT_MUTATION  } from '../graphql/mutations';
 import {
   FormControl,
   TextField,
@@ -14,7 +14,7 @@ const ProductForm = () => {
   const [price, setPrice] = useState('');
   const [image, setImage] = useState(null);
 
-  const [addProduct, { loading, error }] = useMutation(ADD_PRODUCT);
+  const [addProduct, { loading, error }] = useMutation(ADD_PRODUCT_MUTATION );
 
   const handleSubmit = (event) => {
     event.preventDefault();

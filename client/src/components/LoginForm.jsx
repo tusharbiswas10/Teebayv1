@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate  } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../graphql/mutations';
+import { LOGIN_MUTATION  } from '../graphql/mutations';
 import { FormControl, TextField, Button, Typography } from '@material-ui/core';
 
 const LoginForm = ({ handleLogin }) => {
@@ -9,7 +9,7 @@ const LoginForm = ({ handleLogin }) => {
   const [password, setPassword] = useState('');
   const history = useNavigate ();
 
-  const [loginUser, { loading, error }] = useMutation(LOGIN_USER, {
+  const [loginUser, { loading, error }] = useMutation(LOGIN_MUTATION , {
     onCompleted: (data) => {
       handleLogin(data.loginUser.token);
       history('/my-products');

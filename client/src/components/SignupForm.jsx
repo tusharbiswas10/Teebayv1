@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import { SIGNUP_USER } from '../graphql/mutations';
+import {  SIGNUP_MUTATION } from '../graphql/mutations';
 import {
   FormControl,
   TextField,
@@ -19,7 +19,7 @@ const SignupForm = () => {
   const [address, setAddress] = useState('');
   const history = useNavigate();
 
-  const [signupUser, { loading, error }] = useMutation(SIGNUP_USER, {
+  const [signupUser, { loading, error }] = useMutation( SIGNUP_MUTATION, {
     onCompleted: () => {
       history('/login');
     },
