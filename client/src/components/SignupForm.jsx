@@ -7,9 +7,36 @@ import {
   TextField,
   Button,
   Typography,
+  Container,
+  Grid,
 } from '@material-ui/core';
 
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  form: {
+    margin: 'auto',
+    maxWidth: 400,
+    marginTop: theme.spacing(4),
+  },
+  formControl: {
+    marginBottom: theme.spacing(2),
+  },
+  submitButton: {
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(1),
+    height: 48,
+  },
+  loadingSpinner: {
+    color: theme.palette.primary.main,
+  },
+  title: {
+    textAlign: 'center',
+    marginBottom: theme.spacing(2),
+  },
+}));
 const SignupForm = () => {
+  const classes = useStyles();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -40,22 +67,26 @@ const SignupForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <Typography variant="h6" gutterBottom>
+    <form className={classes.form} onSubmit={handleSubmit}>
+      <Typography className={classes.title} variant="h6" gutterBottom>
         Signup
       </Typography>
       {error && <Typography color="error">{error.message}</Typography>}
-      <FormControl margin="normal" fullWidth>
-        <TextField
-          id="firstName"
-          name="firstName"
-          label="First Name"
-          type="text"
-          value={firstName}
-          onChange={(event) => setFirstName(event.target.value)}
-          required
-        />
-      </FormControl>
+      <Grid container spacing={2}>
+        
+        <FormControl margin="normal" fullWidth>
+          <TextField
+            id="firstName"
+            name="firstName"
+            label="First Name"
+            type="text"
+            value={firstName}
+            onChange={(event) => setFirstName(event.target.value)}
+            required
+          />
+        </FormControl>
+        
+        
       <FormControl margin="normal" fullWidth>
         <TextField
           id="lastName"
@@ -131,6 +162,7 @@ const SignupForm = () => {
       >
         Signup
       </Button>
+      </Grid>
     </form>
   );
 };
