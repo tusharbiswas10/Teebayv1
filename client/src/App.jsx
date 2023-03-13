@@ -5,7 +5,7 @@ import { ApolloProvider } from '@apollo/client';
 import client from './graphql/client';
 import LoginPage from './pages/LoginPage';
 import SignupPage from './pages/SignupPage';
-//import MyProductsPage from './pages/MyProductspage';
+import MyProductsPage from './pages/MyProductsPage';
 
 const App = () => {
   return (
@@ -14,7 +14,7 @@ const App = () => {
         <Routes>
           <Route exact path="/" element={<LoginPage/>} />
           <Route exact path="/signup" element={<SignupPage/>} />
-          
+          <Route exact path="/my-products" element={<MyProductsPage/>} />
         </Routes>
       </Router>
     </ApolloProvider>
