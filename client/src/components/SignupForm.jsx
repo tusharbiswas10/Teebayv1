@@ -21,7 +21,7 @@ const SignupForm = () => {
 
   const [signupUser, { loading, error }] = useMutation( SIGNUP_MUTATION, {
     onCompleted: () => {
-      history('/login');
+      history('/');
     },
   });
 
