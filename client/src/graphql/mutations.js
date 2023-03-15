@@ -7,6 +7,7 @@ export const SIGNUP_MUTATION = gql`
       firstName
       lastName
       email
+      password
     }
   }
 `;
