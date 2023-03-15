@@ -1,5 +1,5 @@
 # Overview
-This is an e-commerce platform built with a React and Apollo client, and a Express.js and Prisma server. It allows users to sign up, log in, view a list of products, add products, edit existing products, and delete products. The project uses GraphQL to handle data management and communication between the client and server.
+This is simple product renting and buying/selling products application built with a React and Apollo client, and a Express.js and Prisma server. It allows users to sign up, log in, view a list of products, add products, edit existing products, and delete products. The project uses GraphQL to handle data management and communication between the client and server.
 # Installation
   1.	Clone the project repository from GitHub.
   2.	Navigate to the project directory in the terminal.
