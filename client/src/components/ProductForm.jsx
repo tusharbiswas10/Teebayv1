@@ -16,6 +16,8 @@ const ProductForm = () => {
 
   const [addProduct, { loading, error }] = useMutation(ADD_PRODUCT_MUTATION );
 
+  // creates a new FormData object and appends the name, description, price, and image fields to it.
+  // The function then calls the addProduct mutation function with the form data as the argument.
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData();

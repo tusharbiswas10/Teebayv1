@@ -13,6 +13,7 @@ import {
 
 import { makeStyles } from '@material-ui/core/styles';
 
+// function to create a Material-UI styles object for the component.
 const useStyles = makeStyles((theme) => ({
   form: {
     margin: 'auto',
@@ -35,6 +36,9 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
   },
 }));
+
+//calls the signupUser function from useMutation to send a GraphQL mutation to the server. 
+// The function passes the form values as variables in the mutation.
 const SignupForm = () => {
   const classes = useStyles();
   const [firstName, setFirstName] = useState('');

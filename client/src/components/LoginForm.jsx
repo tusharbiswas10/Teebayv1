@@ -12,6 +12,7 @@ import {
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
+// function to create a Material-UI styles object for the component.
 const useStyles = makeStyles((theme) => ({
   form: {
     margin: 'auto',
@@ -35,6 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// takes a handleLogin prop for handling successful logins.
 const LoginForm = ({ handleLogin }) => {
   const classes = useStyles();
   const [email, setEmail] = useState('');
@@ -48,6 +50,7 @@ const LoginForm = ({ handleLogin }) => {
     },
   });
 
+// sends a login mutation to the server using the useMutation hook from Apollo Client.
   const handleSubmit = (event) => {
     event.preventDefault();
     loginUser({ variables: { email, password } });

@@ -11,6 +11,10 @@ import {
 } from '@material-ui/core';
 import { Edit as EditIcon, Delete as DeleteIcon } from '@material-ui/icons';
 
+/* The useQuery hook is used to fetch data from the GraphQL API using the GET_PRODUCTS_QUERY query defined in a separate file called queries.js. 
+The loading and error states are handled using conditional rendering of Typography components. 
+If the data is successfully fetched, the component checks if the length of the myProducts array is greater than 0 and displays a list of products using the List component. 
+Each product is displayed as a ListItem with its name as the primary text and edit/delete actions as IconButtons on the right side using the ListItemSecondaryAction component.*/
 const ProductList = () => {
   const { loading, error, data } = useQuery(GET_PRODUCTS_QUERY);
 

@@ -2,6 +2,8 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { APP_SECRET, getUserId } = require("../utils");
 
+/* This function takes in a parent, args, context, and info argument and creates a new user with a hashed password using bcrypt,
+ and returns a JWT token and the user object.*/ 
 async function signup(parent, args, context, info) {
   
   const password = await bcrypt.hash(args.password, 10);
@@ -13,6 +15,9 @@ async function signup(parent, args, context, info) {
   };
 }
 
+/* This function takes in a parent, args, context, and info argument and checks if the user exists in the database 
+and if the provided password is valid using bcrypt.
+If the authentication is successful, it returns a JWT token and the user object.*/
 async function login(parent, args, context, info) {
 
   const user = await context.prisma.user.findUnique({ where: { email: args.email } });
@@ -35,6 +40,7 @@ async function login(parent, args, context, info) {
   };
 }
 
+/* This function takes in a parent, args, context, and info argument and creates a new product linked to the authenticated user.*/ 
 function post(parent, args, context, info) {
   const userId = getUserId(context);
   return context.prisma.product.create({
@@ -46,7 +52,8 @@ function post(parent, args, context, info) {
     },
   });
 }
-
+/*This function takes in a parent, args, context, and info argument and updates an existing product linked to the authenticated user.
+ It checks if the product exists and if the authenticated user is the owner of the product before performing the update operation.*/
 async function updateProduct(parent, args, context, info) {
   const userId = getUserId(context);
   const productExists = await context.prisma.product.findUnique({
@@ -70,7 +77,8 @@ async function updateProduct(parent, args, context, info) {
     },
   });
 }
-
+/* function takes in a parent, args, context, and info argument and deletes an existing product linked to the authenticated user.
+It checks if the product exists and if the authenticated user is the owner of the product before performing the delete operation.*/
 async function deleteProduct(parent, args, context, info) {
   const userId = getUserId(context);
   const productExists = await context.prisma.product.findUnique({
